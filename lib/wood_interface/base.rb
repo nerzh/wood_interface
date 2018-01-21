@@ -98,7 +98,7 @@ module WoodInterface
 
     def interfaces
       interfaces = []
-      self.class.ancestors.each { |klass| break if klass == Interface; interfaces << klass.to_s }
+      self.class.ancestors.each { |klass| break if klass == WoodInterface; interfaces << klass.to_s }
       interfaces
     end
   end
