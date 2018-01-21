@@ -1,8 +1,6 @@
 # WoodInterface
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/wood_interface`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+ Just I was bored. Wooden Interface without methods of Class.
 
 ## Installation
 
@@ -22,7 +20,46 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+module BaseInterface
+  include Interface
+
+  methods do
+    required_method :get_data
+    required_method :set_data, key: String, data: ''
+  end
+end
+
+module DataInterface
+  include Interface
+
+  methods do
+    required_method :data
+    required_method :to_json
+  end
+end
+
+class DataBase
+  prepend BaseInterface
+  prepend DataInterface
+
+  def get_data
+    ...
+  end
+
+  def set_data(data)
+    ...
+  end
+
+  def data
+    ...
+  end
+
+  def to_json
+    ...
+  end
+end
+```
 
 ## Development
 
