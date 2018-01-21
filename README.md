@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ```ruby
 module BaseInterface
-  include Interface
+  include WoodInterface
 
   methods do
     required_method :get_data
@@ -31,7 +31,7 @@ module BaseInterface
 end
 
 module DataInterface
-  include Interface
+  include WoodInterface
 
   methods do
     required_method :data
