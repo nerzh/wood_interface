@@ -76,8 +76,12 @@ module WoodInterface
       end
     end
 
+    def exist_method?(name)
+      methods.include?(name) or private_methods.include?(name)
+    end
+
     def check_method(ntrfc_name, name)
-      unless respond_to?(name)
+      unless exist_method?(name)
         raise WoodInterface::InterfaceNotImplementedError.new("#{self.class.to_s} needs to implement method '#{name}' for interface #{ntrfc_name}!")
       end
     end
