@@ -47,7 +47,7 @@ class DataBase
     ...
   end
 
-  def set_data(data)
+  def set_data(data, key)
     ...
   end
 
