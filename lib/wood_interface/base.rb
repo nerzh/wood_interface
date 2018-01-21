@@ -78,13 +78,13 @@ module WoodInterface
 
     def check_method(ntrfc_name, name)
       unless respond_to?(name)
-        raise Interface::InterfaceNotImplementedError.new("#{self.class.to_s} needs to implement method '#{name}' for interface #{ntrfc_name}!")
+        raise WoodInterface::InterfaceNotImplementedError.new("#{self.class.to_s} needs to implement method '#{name}' for interface #{ntrfc_name}!")
       end
     end
 
     def check_arguments(ntrfc_name, name, arguments)
       unless check_arity(method(name), arguments)
-        raise Interface::InterfaceArgumentError.new("ArgumentError in inplemented method '#{self.class.to_s}'-'#{name}' for interface #{ntrfc_name} given #{method(name).arity.abs}, expected #{arguments.keys.size} !")
+        raise WoodInterface::InterfaceArgumentError.new("ArgumentError in inplemented method '#{self.class.to_s}'-'#{name}' for interface #{ntrfc_name} given #{method(name).arity.abs}, expected #{arguments.keys.size} !")
       end
     end
 
